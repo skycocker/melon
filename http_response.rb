@@ -15,7 +15,7 @@ class HttpResponse
       new(status, content_type, body, headers).respond
     end
 
-    def head(status, headers = [])
+    def head(status, headers = {})
       [status, headers, Rack::BodyProxy.new([]) {}]
     end
   end

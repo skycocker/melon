@@ -8,7 +8,7 @@ require_relative './http_response'
 
 class Melon
   def call(env)
-    Router.dispatch(env["REQUEST_PATH"], env)
+    Router.dispatch(env["PATH_INFO"], env)
   rescue Router::Errors::InvalidRoute => e
     HttpResponse.head(404)
   end
